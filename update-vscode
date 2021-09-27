@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $HOME/.vscode/base/
+
 wget -O code.tar.gz 'https://code.visualstudio.com/sha/download?build=stable&os=linux-x64'
 tar -xf code.tar.gz
 
