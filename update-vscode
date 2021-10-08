@@ -3,6 +3,9 @@
 cd $HOME/.vscode/base/
 
 wget -O code.tar.gz 'https://code.visualstudio.com/sha/download?build=stable&os=linux-x64'
+
+echo "Extraindo o VS-Code para atualizar"
+
 tar -xf code.tar.gz
 
 
@@ -10,6 +13,7 @@ argc=$#
 argv=("$@")
 
 for (( j=0; j<argc; j++ )); do
+    echo "Atualizando o ${argv[j]}"
     cd $HOME/.vscode/"${argv[j]}"
     rm -rf *[!"data"]*
     cd $HOME/.vscode/base/VSCode-linux-x64/
@@ -17,5 +21,8 @@ for (( j=0; j<argc; j++ )); do
     mv $HOME/.vscode/"${argv[j]}"/code $HOME/.vscode/"${argv[j]}"/${argv[j]}
 done
 
+echo "Realizando a limpeza pós instalação"
 rm $HOME/.vscode/base/VSCode-linux-x64 -R
 rm $HOME/.vscode/base/code.tar.gz
+
+echo "Operação finalizada"
